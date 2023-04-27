@@ -1,5 +1,4 @@
-import React, { useState, useEffect } from "react";
-import { Button, MessagePlugin } from "tdesign-react";
+import { useState, useEffect } from "react";
 import { useCamera } from "@/hooks";
 import styles from "./index.module.scss";
 import { useNavigate } from "react-router";
@@ -11,7 +10,7 @@ const CameraPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if ([0, 1].includes(step)) {
+    if ([0].includes(step)) {
       return;
     }
     startCamera();
@@ -43,12 +42,13 @@ const CameraPage = () => {
       return;
     }
     const data = await takePhoto();
-    setPhoto(data);
+    const url = URL.createObjectURL(data);
+    setPhoto(url);
     stopCamera();
     setTimeout(() => {
       navigate("/problem", {
         state: {
-          photo,
+          photo: data,
         },
       });
     }, 1500);

@@ -47,7 +47,7 @@ export const useCamera = () => {
   }, []);
 
   const takePhoto = useCallback(() => {
-    return new Promise<string>((resolve, reject) => {
+    return new Promise<Blob>((resolve, reject) => {
       if (canvasRef.current && videoRef.current) {
         const context = canvasRef.current.getContext("2d");
         canvasRef.current.width = videoRef.current.videoWidth;
@@ -61,8 +61,7 @@ export const useCamera = () => {
         );
         canvasRef.current.toBlob(
           (blob) => {
-            const url = URL.createObjectURL(blob as Blob);
-            resolve(url);
+            resolve(blob as Blob);
           },
           "image/jpeg",
           1

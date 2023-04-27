@@ -1,7 +1,6 @@
 import { useState, useEffect, useRef } from "react";
-import { useNavigate } from "react-router";
+import { useLocation, useNavigate } from "react-router";
 import styles from "./index.module.scss";
-import { MessagePlugin } from "tdesign-react";
 
 function buttonPressed(b: any) {
   if (typeof b == "object") {
@@ -102,6 +101,7 @@ export interface ProblemOption {
 
 const Problem = () => {
   const navigate = useNavigate();
+  const { state } = useLocation();
 
   const [currentProblemIndex, setCurrentProblemIndex] = useState(1);
   const currentProblem = problems.find(
@@ -110,6 +110,12 @@ const Problem = () => {
 
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(-1);
   const gamepadID = useRef<number | null>(null);
+
+  useEffect(() => {
+    if (!state || !state.photo) {
+      navigate("/");
+    }
+  }, [state]);
 
   useEffect(() => {
     const handleGamepad = () => {
@@ -174,10 +180,16 @@ const Problem = () => {
       setCurrentProblemIndex(option.value);
       return;
     }
+    navigate("/result", {
+      state: {
+        photo: state.photo,
+        value: option.value,
+      },
+    });
   };
 
   return (
-    <div className="flex flex-col w-[100vw] h-[100vh] items-center ">
+    <div className="flex flex-col w-[100vw] h-[100vh] items-center">
       <div className="flex flex-col pl-[8rem] pt-[8rem] w-full items-center">
         <div className="text-3xl w-full mb-[3rem]">
           {currentProblemIndex}. {currentProblem.question}
