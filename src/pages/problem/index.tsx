@@ -190,7 +190,10 @@ const Problem = () => {
 
   return (
     <div className="flex flex-col w-[100vw] h-[100vh] items-center">
-      <div className="flex flex-col pl-[8rem] pt-[8rem] w-full items-center">
+      <div
+        className="flex flex-col pl-[8rem] pt-[8rem] w-full items-center fade-in"
+        key={currentProblemIndex}
+      >
         <div className="text-3xl w-full mb-[3rem]">
           {currentProblemIndex}. {currentProblem.question}
         </div>
