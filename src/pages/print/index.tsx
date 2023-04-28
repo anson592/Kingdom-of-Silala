@@ -5,10 +5,10 @@ export const Print = ({ src, onDone }: { src?: string; onDone?: any }) => {
     document.body.setAttribute("style", "background:white");
     document.documentElement.setAttribute("style", "background:white");
     window.print();
+    onDone?.();
     return () => {
       document.body.removeAttribute("style");
       document.documentElement.removeAttribute("style");
-      onDone?.();
     };
   }, [src]);
 
