@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router";
 import styles from "./index.module.scss";
 import { Process } from "../../components/process";
-import { QRCode } from "antd";
+import { QRCode, message } from "antd";
 import Print from "../print";
 
 import { img2img } from "../../api/socket";
@@ -138,9 +138,16 @@ const Result = () => {
     img2img(
       state.photo,
       valueStore[state.value as keyof typeof valueStore].prompt!
-    ).then((res) => {
-      setImg(res);
-    });
+    )
+      .then((res) => {
+        setImg(res);
+      })
+      .catch((err) => {
+        message.error("请求超时，即将重试");
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
+      });
   }, [state, img]);
 
   if (!state || !state.photo || !state.value) {
