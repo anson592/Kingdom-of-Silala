@@ -24,3 +24,9 @@ button {
   border: 0.08em solid currentColor;
   padding: 0.4em 1.2em !important;
 }
+
+.ant-qrcode {
+  width: auto !important;
+  height: auto !important;
+  border-radius: 0px !important;
+}

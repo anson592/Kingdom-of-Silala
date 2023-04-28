@@ -3,6 +3,7 @@ import { useLocation, useNavigate } from "react-router";
 import styles from "./index.module.scss";
 import { Process } from "../../components/process";
 import { QRCode } from "antd";
+import Print from "../print";
 
 import { img2img } from "../../api/socket";
 
@@ -118,6 +119,7 @@ const Result = () => {
   const { state } = location;
 
   const [img, setImg] = useState<string | null>();
+  const [print, setPrint] = useState<boolean>(false);
 
   useEffect(() => {
     if (img) {
@@ -137,20 +139,47 @@ const Result = () => {
       state.photo,
       valueStore[state.value as keyof typeof valueStore].prompt!
     ).then((res) => {
-      const base64Src = `data:image/png;base64,${res.data.images[0]}`;
-      setImg(base64Src);
+      setImg(res);
     });
   }, [state, img]);
 
   if (!state || !state.photo || !state.value) {
     return null;
   }
+  if (print) {
+    return <Print src={img ?? ""} onDone={() => setPrint(false)} />;
+  }
+
+  const handlePrint = () => {
+    setPrint(true);
+  };
 
   if (img) {
     return (
       <div className="flex flex-row w-[100vw] h-[100vh] items-center justify-center fade-in">
-        <img src={img} alt="" className="h-[60%] mt-10" />
-        {/* <QRCode value={img} /> */}
+        <div className="flex flex-col h-full pt-16">
+          <img src={img} alt="" className="h-[368px]" />
+          <button className="mt-16 text-3xl w-full" onClick={handlePrint}>
+            打 印
+          </button>
+        </div>
+        <div className="flex flex-col items-center h-full pt-16 pl-16">
+          <div className="h-[368px] flex flex-col-reverse">
+            <QRCode
+              value={img}
+              color="white"
+              style={{
+                backgroundColor: "black",
+                padding: 0,
+                width: "auto",
+                height: "auto",
+              }}
+            />
+          </div>
+          <span className="mt-16 text-3xl py-[0.4em] px-[1.2em] border-[0.08em] border-transparent">
+            拜拜
+          </span>
+        </div>
       </div>
     );
   }
