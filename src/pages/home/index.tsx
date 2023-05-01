@@ -13,7 +13,7 @@ import drinkYellow from "@/assets/images/drink-yellow.png";
 import king from "@/assets/images/king.png";
 
 import "./index.scss";
-import { Typed } from "@/components";
+import { Typed, ZZZ } from "@/components";
 
 const Home = () => {
   const [step, setStep] = useState(0);
@@ -163,6 +163,7 @@ const Home = () => {
             就会奖励一颗钻石
           </Typed>
         </div>
+        <ZZZ className="absolute text-5xl bottom-[14vw] right-[57vw]" />
         <img
           src={diamond}
           className="coin w-[13.5vh] absolute right-[50.4vh] top-[45.4vh] z-50"
