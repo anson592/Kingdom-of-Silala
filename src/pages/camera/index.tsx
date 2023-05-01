@@ -2,7 +2,8 @@ import { useState, useEffect } from "react";
 import { useCamera } from "@/hooks";
 import styles from "./index.module.scss";
 import { useNavigate } from "react-router";
-import { CSSTransition } from "react-transition-group";
+import wall from "@/assets/images/wall.png";
+import { Typed, ZZZ } from "@/components";
 
 const CameraPage = () => {
   const [cameraRef, startCamera, stopCamera, takePhoto] = useCamera();
@@ -11,7 +12,7 @@ const CameraPage = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if ([0].includes(step)) {
+    if ([1].includes(step)) {
       return;
     }
     startCamera();
@@ -19,12 +20,6 @@ const CameraPage = () => {
       stopCamera();
     };
   }, [step]);
-
-  if (step === 0) {
-    setTimeout(() => {
-      setStep(1);
-    }, 3000);
-  }
 
   const handleTakePhoto = async () => {
     if (!cameraRef.current) {
@@ -35,60 +30,66 @@ const CameraPage = () => {
     setPhoto(url);
     stopCamera();
     setTimeout(() => {
+      setStep(1);
+    }, 1500);
+    setTimeout(() => {
       navigate("/problem", {
         state: {
           photo: data,
         },
       });
-    }, 1500);
+    }, 5000);
   };
 
+  if (step === 0) {
+    return (
+      <div
+        className="w-[100vw] h-[100vh] flex flex-col items-center justify-center absolute top-0 left-0 bg-black z-10"
+        key={step}
+      >
+        <div>
+          {!photo ? (
+            <div
+              className={`w-[200px] h-[320px] ${styles.preview}`}
+              ref={cameraRef}
+            />
+          ) : (
+            <div className={`w-[200px] h-[320px] ${styles.preview}`}>
+              <img src={photo} />
+            </div>
+          )}
+        </div>
+        <div className="py-[2rem]">
+          <button className="text-3xl w-[200px]" onClick={handleTakePhoto}>
+            拍 照
+          </button>
+        </div>
+        <span className="text-3xl">请点击按钮获取准考证照片</span>
+      </div>
+    );
+  }
+
+  const wallEle = (
+    <img src={wall} className="absolute bottom-0 left-0 w-[100vw] z-10" />
+  );
+
   return (
-    <div>
-      <CSSTransition
-        in={step === 0}
-        classNames={"fade"}
-        unmountOnExit
-        timeout={800}
+    <div
+      className="w-[100vw] h-[100vh] flex flex-col items-center relative"
+      key={step}
+    >
+      <div
+        className="text-3xl mt-[25%]"
+        style={{
+          lineHeight: 1.8,
+        }}
       >
-        <div className="w-[100vw] h-[100vh] flex flex-col items-center absolute top-0 left-0 fade-in">
-          <div
-            className="text-3xl mt-[20%]"
-            style={{
-              lineHeight: 1.8,
-            }}
-          >
-            欢迎来到西拉拉国,你现在陷入沉睡,进入梦中......
-          </div>
-        </div>
-      </CSSTransition>
-      <CSSTransition
-        in={step !== 0}
-        classNames={"fade"}
-        unmountOnExit
-        timeout={800}
-      >
-        <div className="w-[100vw] h-[100vh] flex flex-col items-center justify-center absolute top-0 left-0 bg-black z-10">
-          <div>
-            {!photo ? (
-              <div
-                className={`w-[200px] h-[320px] ${styles.preview}`}
-                ref={cameraRef}
-              />
-            ) : (
-              <div className={`w-[200px] h-[320px] ${styles.preview}`}>
-                <img src={photo} />
-              </div>
-            )}
-          </div>
-          <div className="py-[2rem]">
-            <button className="text-3xl w-[200px]" onClick={handleTakePhoto}>
-              拍 照
-            </button>
-          </div>
-          <span className="text-3xl">请点击按钮获取准考证照片</span>
-        </div>
-      </CSSTransition>
+        <Typed changeSize={(s) => s - 4}>
+          欢迎来到西拉拉国,你现在陷入沉睡,进入梦中......
+        </Typed>
+      </div>
+      <ZZZ className="text-5xl absolute right-[28vh] top-[12vh]" />
+      {wallEle}
     </div>
   );
 };

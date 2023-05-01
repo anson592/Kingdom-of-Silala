@@ -1,0 +1,29 @@
+.z0 {
+  opacity: 0.9;
+  animation: fadeInZ0 forwards;
+  animation-duration: 0.5s;
+  animation-delay: 0s;
+}
+
+@keyframes fadeInZ0 {
+  from {
+    opacity: 0.9;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.z1 {
+  opacity: 0;
+  animation: fadeIn forwards;
+  animation-duration: 0.5s;
+  animation-delay: 0.5s;
+}
+
+.z2 {
+  opacity: 0;
+  animation: fadeIn forwards;
+  animation-duration: 0.5s;
+  animation-delay: 1s;
+}

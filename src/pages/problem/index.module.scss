@@ -2,29 +2,22 @@
   font-size: 3rem;
   margin-bottom: 2rem;
 }
-.options {
-  display: flex;
-  flex-direction: column;
-  width: 80%;
-  .option {
-    font-size: 2rem;
-    padding: 1rem;
-    border: 2px solid transparent;
-    line-height: 1.7;
-    cursor: pointer;
-    width: 100%;
-    word-wrap: break-word;
-    transition: background-color 0.3s ease;
-    &:hover {
-      background-color: #343434;
-    }
-  }
-  .selected {
-    background-color: #ccc !important;
-    border: 2px solid #ccc;
+.option {
+  font-size: 2rem;
+  padding: 1rem;
+  border: 2px solid transparent;
+  line-height: 1.7;
+  cursor: pointer;
+  word-wrap: break-word;
+  transition: background-color 0.3s ease;
+  border: 0.08em solid transparent;
+  transition: 0.36s ease border-color;
+  padding: 0.4em 1.2em;
+  &-active,
+  &:hover {
+    border: 0.08em solid currentColor;
   }
 }
-
 .button {
   font-size: 2rem;
   padding: 1rem;
@@ -41,40 +34,6 @@
 
 .button:active {
   background-color: #005cbf;
-}
-
-.buttonContainer {
-  display: flex;
-  justify-content: space-between;
-  margin-top: 20px;
-  .button {
-    padding: 10px 20px;
-    border-radius: 5px;
-    font-size: 16px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    &:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
-    }
-  }
-  .nextButton {
-    background-color: #4caf50;
-    color: #fff;
-    border: none;
-    margin-right: 10px;
-  }
-  .prevButton {
-    background-color: #f44336;
-    color: #fff;
-    border: none;
-    margin-right: 10px;
-  }
-  .submitButton {
-    background-color: #2196f3;
-    color: #fff;
-    border: none;
-  }
 }
 
 @media screen and (max-width: 768px) {

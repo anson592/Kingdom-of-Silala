@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router";
 import styles from "./index.module.scss";
+import wall from "@/assets/images/wall.png";
 
 function buttonPressed(b: any) {
   if (typeof b == "object") {
@@ -111,6 +112,10 @@ const Problem = () => {
   const [selectedOptionIndex, setSelectedOptionIndex] = useState(-1);
   const gamepadID = useRef<number | null>(null);
 
+  const wallEle = (
+    <img src={wall} className="absolute bottom-0 left-0 w-[100vw] z-10" />
+  );
+
   useEffect(() => {
     if (!state || !state.photo) {
       navigate("/");
@@ -188,27 +193,107 @@ const Problem = () => {
     });
   };
 
+  useEffect(() => {
+    // 监控ws与上下方向键，以及Enter键/Space键，用来设置selectedOptionIndex以及跳转
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const { key } = e;
+
+      if (selectedOptionIndex === -1) {
+        setSelectedOptionIndex(0);
+        return;
+      }
+
+      if (currentProblem.options.length < 4) {
+        if (key === "ArrowUp" || key === "w" || key === "W") {
+          setSelectedOptionIndex((prevIndex) =>
+            prevIndex === 0 ? currentProblem.options.length - 1 : prevIndex - 1
+          );
+        } else if (key === "ArrowDown" || key === "s" || key === "S") {
+          setSelectedOptionIndex((prevIndex) =>
+            prevIndex === currentProblem.options.length - 1 ? 0 : prevIndex + 1
+          );
+        }
+      } else {
+        if (key === "ArrowLeft" || key === "a" || key === "A") {
+          setSelectedOptionIndex((prevIndex) =>
+            prevIndex === 0 ? currentProblem.options.length - 1 : prevIndex - 1
+          );
+        } else if (key === "ArrowRight" || key === "d" || key === "D") {
+          setSelectedOptionIndex((prevIndex) =>
+            prevIndex === currentProblem.options.length - 1 ? 0 : prevIndex + 1
+          );
+        } else if (key === "ArrowUp" || key === "w" || key === "W") {
+          setSelectedOptionIndex((prevIndex) => {
+            const newIndex = prevIndex - 2;
+            if (newIndex < 0) {
+              return newIndex + currentProblem.options.length;
+            }
+            return newIndex;
+          });
+        } else if (key === "ArrowDown" || key === "s" || key === "S") {
+          setSelectedOptionIndex((prevIndex) => {
+            const newIndex = prevIndex + 2;
+            return newIndex % currentProblem.options.length;
+          });
+        }
+      }
+
+      if (key === "Enter" || key === " ") {
+        setSelectedOptionIndex((prev) => {
+          const selectedOption = currentProblem.options[prev];
+          handleClick(selectedOption);
+          return -1;
+        });
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [currentProblem, selectedOptionIndex]);
+
   return (
     <div className="flex flex-col w-[100vw] h-[100vh] items-center">
       <div
-        className="flex flex-col pl-[8rem] pt-[8rem] w-full items-center fade-in"
+        className="flex flex-col pl-[8rem] pt-[7rem] w-full items-center fade-in"
         key={currentProblemIndex}
       >
         <div className="text-3xl w-full mb-[3rem]">
           {currentProblemIndex}. {currentProblem.question}
         </div>
-        <div className={styles.options}>
-          {currentProblem.options.map((option, index) => (
-            <div
-              key={index}
-              className={`${styles.option}`}
-              onClick={() => handleClick(option)}
-            >
-              {`${String.fromCharCode(65 + index)}. ${option.text}`}
-            </div>
-          ))}
-        </div>
+        {currentProblem.options.length < 4 && (
+          <div className={"flex flex-col w-[80%]"}>
+            {currentProblem.options.map((option, index) => (
+              <div
+                key={index}
+                className={`${styles.option} w-full ${
+                  selectedOptionIndex === index ? styles["option-active"] : ""
+                }`}
+                onClick={() => handleClick(option)}
+              >
+                {`${String.fromCharCode(65 + index)}. ${option.text}`}
+              </div>
+            ))}
+          </div>
+        )}
+        {currentProblem.options.length >= 4 && (
+          <div className={"flex flex-row flex-wrap w-[100%]"}>
+            {currentProblem.options.map((option, index) => (
+              <div
+                key={index}
+                className={`${styles.option} w-[40%] ${
+                  selectedOptionIndex === index ? styles["option-active"] : ""
+                }`}
+                onClick={() => handleClick(option)}
+              >
+                {`${String.fromCharCode(65 + index)}. ${option.text}`}
+              </div>
+            ))}
+          </div>
+        )}
       </div>
+      {wallEle}
     </div>
   );
 };

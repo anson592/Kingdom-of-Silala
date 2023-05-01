@@ -4,6 +4,7 @@ import styles from "./index.module.scss";
 import { Process } from "../../components/process";
 import { QRCode, message } from "antd";
 import Print from "../print";
+import { Typed } from "@/components";
 
 import { img2img } from "../../api/socket";
 
@@ -11,10 +12,14 @@ const valueStore = {
   驱逐: {
     node: (
       <>
-        <p>恭喜你被西拉拉国驱逐！</p>
+        <Typed size={14}>
+          恭喜你被西拉拉国
+          <span className="text-6xl ml-3">驱逐！</span>
+        </Typed>
         <p>
-          善良、正直、不和邪恶同流合污的人，
-          就会被无情地赶出这个国家，因为人们都不欢迎这样的人。
+          <Typed delay={1400}>“善良、正直、不和邪恶同流合污的人，</Typed>
+          <Typed delay={1400 + 2000}>就会被无情地赶出这个国家，因为</Typed>
+          <Typed delay={1400 + 2000 + 1400}>人们都不欢迎这样的人。“</Typed>
         </p>
       </>
     ),
@@ -23,9 +28,19 @@ const valueStore = {
   平民: {
     node: (
       <>
-        <p>恭喜你成为西拉拉国的平民，请等待通行证生成！</p>
+        <Typed size={16}>
+          恭喜你成为西拉拉国的<span className="text-6xl ml-3">平民！</span>
+        </Typed>
         <p>
-          “这个国家鼓励大家不要去工作，所以每个人都爱睡觉，只要你睡觉，就会有人奖励你一颗砖石。喜欢抽烟喝酒的人，也会得到奖赏。”
+          <Typed delay={1600}>
+            “这个国家鼓励大家不要去工作，所以每个人都爱
+          </Typed>
+          <Typed delay={1600 + 2200}>
+            睡觉，只要你睡觉，就会有人奖励你一颗钻石。
+          </Typed>
+          <Typed delay={1600 + 2200 + 2200}>
+            喜欢抽烟喝酒的人，也会得到奖赏。“
+          </Typed>
         </p>
       </>
     ),
@@ -34,9 +49,12 @@ const valueStore = {
   警察: {
     node: (
       <>
-        <p>恭喜你成为西拉拉国的警察，请等待通行证生成！</p>
+        <Typed size={16}>
+          恭喜你成为西拉拉国的<span className="text-6xl ml-3">警察！</span>
+        </Typed>
         <p>
-          在西拉拉国，“爱赌博、爱说谎的人就更得意了，他们通常都是法官、警察和银行家。”
+          <Typed delay={1600}>“爱赌博、爱说谎的人就更得意了，他们通常</Typed>
+          <Typed delay={1600 + 2200}>都是法官、警察和银行家。“</Typed>
         </p>
       </>
     ),
@@ -45,9 +63,12 @@ const valueStore = {
   银行家: {
     node: (
       <>
-        <p>恭喜你成为西拉拉国的银行家，请等待通行证生成！</p>
+        <Typed size={18}>
+          恭喜你成为西拉拉国的<span className="text-6xl ml-3">银行家！</span>
+        </Typed>
         <p>
-          在西拉拉国，“爱赌博、爱说谎的人就更得意了，他们通常都是法官、警察和银行家。”
+          <Typed delay={1800}>“爱赌博、爱说谎的人就更得意了，他们通常</Typed>
+          <Typed delay={1800 + 2200}>都是法官、警察和银行家。“</Typed>
         </p>
       </>
     ),
@@ -56,9 +77,12 @@ const valueStore = {
   法官: {
     node: (
       <>
-        <p>恭喜你成为西拉拉国的法官，请等待通行证生成！</p>
+        <Typed size={16}>
+          恭喜你成为西拉拉国的<span className="text-6xl ml-3">法官！</span>
+        </Typed>
         <p>
-          在西拉拉国，“爱赌博、爱说谎的人就更得意了，他们通常都是法官、警察和银行家。”
+          <Typed delay={1600}>“爱赌博、爱说谎的人就更得意了，他们通常</Typed>
+          <Typed delay={1600 + 2200}>都是法官、警察和银行家。“</Typed>
         </p>
       </>
     ),
@@ -67,9 +91,12 @@ const valueStore = {
   骑士: {
     node: (
       <>
-        <p>恭喜你成为西拉拉国的骑士，请等待通行证生成！</p>
+        <Typed size={16}>
+          恭喜你成为西拉拉国的<span className="text-6xl ml-3">骑士！</span>
+        </Typed>
         <p>
-          在西拉拉国，“当官的人什么都不用做，只需要互相吹捧，他们的官就会越做越大。”
+          <Typed delay={1600}>“当官的人什么都不用做，只需要互相吹捧，</Typed>
+          <Typed delay={1600 + 2200}>他们的官就会越做越大。“</Typed>
         </p>
       </>
     ),
@@ -78,10 +105,15 @@ const valueStore = {
   将军: {
     node: (
       <>
-        <p>恭喜你成为西拉拉国的将军，请等待通行证生成！</p>
+        <Typed size={16}>
+          恭喜你成为西拉拉国的<span className="text-6xl ml-3">将军！</span>
+        </Typed>
         <p>
-          在西拉拉国，“最愚蠢、最不讲道理的人就能得到贵族的称号，最会享受和玩乐的人，就能得到伯爵
-          的爵位。”
+          <Typed delay={1600}>“最愚蠢、最不讲道理的人就能得到贵族的称</Typed>
+          <Typed delay={1600 + 2200}>
+            号，最会享受和玩乐的人，就能得到伯爵的爵
+          </Typed>
+          <Typed delay={1600 + 2200 + 2200}>位。“</Typed>
         </p>
       </>
     ),
@@ -90,10 +122,15 @@ const valueStore = {
   伯爵: {
     node: (
       <>
-        <p>恭喜你成为西拉拉国的伯爵，请等待通行证生成！</p>
+        <Typed size={16}>
+          恭喜你成为西拉拉国的<span className="text-6xl ml-3">伯爵！</span>
+        </Typed>
         <p>
-          在西拉拉国，“最愚蠢、最不讲道理的人就能得到贵族的称号，最会享受和玩乐的人，就能得到伯爵
-          的爵位。”
+          <Typed delay={1600}>“最愚蠢、最不讲道理的人就能得到贵族的称</Typed>
+          <Typed delay={1600 + 2200}>
+            号，最会享受和玩乐的人，就能得到伯爵的爵
+          </Typed>
+          <Typed delay={1600 + 2200 + 2200}>位。“</Typed>
         </p>
       </>
     ),
@@ -102,9 +139,12 @@ const valueStore = {
   国王: {
     node: (
       <>
-        <p>恭喜你成为西拉拉国的国王，请等待通行证生成！</p>
+        <Typed size={16}>
+          恭喜你成为西拉拉国的<span className="text-6xl ml-3">国王！</span>
+        </Typed>
         <p>
-          在西拉拉国，“最懒惰、邪恶、粗鲁、愚笨的人，这个人就是西拉拉国的国王了。”
+          <Typed delay={1600}>“最懒惰、邪恶、粗鲁、愚笨的人，这个人</Typed>
+          <Typed delay={1600 + 2200}>就是西拉拉国的国王了。“</Typed>
         </p>
       </>
     ),
@@ -135,6 +175,10 @@ const Result = () => {
       return;
     }
 
+    if (state.value === "驱逐") {
+      return;
+    }
+
     img2img(
       state.photo,
       valueStore[state.value as keyof typeof valueStore].prompt!
@@ -143,10 +187,11 @@ const Result = () => {
         setImg(res);
       })
       .catch((err) => {
+        console.error("err", err);
         message.error("请求超时，即将重试");
-        setTimeout(() => {
-          window.location.reload();
-        }, 1000);
+        // setTimeout(() => {
+        //   window.location.reload();
+        // }, 1000);
       });
   }, [state, img]);
 
@@ -200,7 +245,12 @@ const Result = () => {
         }}
       >
         {valueStore[state.value as keyof typeof valueStore].node}
-        <Process className="mt-12" maxValue={95} />
+        {state.value !== "驱逐" && (
+          <div className="flex flex-col items-center">
+            <Process className="mt-12" maxValue={95} />
+            <span>请等待通行证生成</span>
+          </div>
+        )}
       </div>
     </div>
   );

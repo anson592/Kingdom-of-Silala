@@ -1,0 +1,101 @@
+@keyframes duck-left-in {
+  0% {
+    left: -50vw;
+    bottom: 50vw;
+  }
+  100% {
+    left: 1rem;
+    bottom: 8vw;
+  }
+}
+.duck-left {
+  left: -50vw;
+  bottom: 50vw;
+  animation: duck-left-in ease-out forwards;
+  animation-duration: 2s;
+}
+
+.duck-top {
+  top: 2vw;
+  right: 1rem;
+  animation: duck-top-infinite ease-in-out infinite;
+  animation-duration: 5s;
+}
+
+@keyframes duck-top-infinite {
+  0% {
+    right: 1rem;
+    transform: rotateY(0deg);
+  }
+  49.99% {
+    right: 20rem;
+    transform: rotateY(0deg);
+  }
+  50% {
+    transform: rotateY(180deg);
+    right: 20rem;
+  }
+  100% {
+    right: 1rem;
+    transform: rotateY(180deg);
+  }
+}
+
+.coin {
+  transform: translateY(-100vh);
+  animation: coin-in linear forwards;
+  animation-duration: 3s;
+}
+
+@keyframes coin-in {
+  0% {
+    transform: translateY(-100vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+.drink {
+  transform: translateY(-50vh);
+  animation: drink-in linear forwards;
+  animation-duration: 1.5s;
+}
+.big-drink {
+  transform: translateY(-50vh) scale(2.55);
+  animation: big-drink-in linear forwards;
+  animation-duration: 1.5s;
+}
+
+@keyframes drink-in {
+  0% {
+    transform: translateY(-50vh);
+  }
+  100% {
+    transform: translateY(0);
+  }
+}
+
+@keyframes big-drink-in {
+  0% {
+    transform: translateY(-100vh) scale(2.55);
+  }
+  100% {
+    transform: translateY(0) scale(2.55);
+  }
+}
+
+.king {
+  transform: translateX(100vh);
+  animation: king-in steps(16, end) forwards;
+  animation-duration: 1.5s;
+}
+
+@keyframes king-in {
+  0% {
+    transform: translateX(100vh);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
