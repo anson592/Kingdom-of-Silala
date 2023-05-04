@@ -44,7 +44,10 @@ const valueStore = {
         </p>
       </>
     ),
-    prompt: "",
+    prompt: [
+      "1civilian,a scene of a civilian in a restaurant, dressed in simple and comfortable attire, such as jeans and a basic t-shirt or shirt, or perhaps in casual wear,civilian may be wearing a hat or glasses, but without any noticeable accessories.  the atmosphere inside the restaurant is relaxed, with simple and comfortable table and chair settings, minimalist wall decorations, with some paintings or ornaments.  the lighting is soft, and the view outside the windows may be a cityscape or a green garden,",
+      "NSFW,best quality, masterpiece, wallpaper, extremely detailed, detailed eyes, 8k wallpaper, focus on face, painting by colored pencil, traditional media, light,<lora:lzastory_6000:1>",
+    ].join(""),
   },
   警察: {
     node: (
@@ -58,7 +61,10 @@ const valueStore = {
         </p>
       </>
     ),
-    prompt: "",
+    prompt: [
+      "1police officer with gun,the police officer wears a dark-colored uniform, with a jacket that has a formal collar with metal buttons and a structured shoulder design, and a police badge on the left chest.the shirt is either white or gray, and is paired with a black or dark gray tie and a hat with a police emblem,",
+      "best quality, masterpiece, wallpaper, extremely detailed, detailed eyes, 8k wallpaper, focus on face, painting by colored pencil, traditional media, light,<lora:lzastory_6000:1>",
+    ].join(""),
   },
   银行家: {
     node: (
@@ -72,7 +78,8 @@ const valueStore = {
         </p>
       </>
     ),
-    prompt: "",
+    prompt:
+      "1banker,banker is dressed in a formal black or dark gray suit, paired with a white or light blue shirt and tie. the attire is neat and appropriate, showcasing their professionalism and efficiency. the bank building is spacious and bright, with exquisite interior decoration and abstract paintings hung on the walls. the floor is made of high-quality marble material, reflecting light that adds to the noble and elegant atmosphere of the entire hall. the work area is equipped with various modern equipment and tools such as computers, telephones, and file cabinets, giving a sense of technology and modernity. the overall banking environment conveys a feeling of stability, trust, and professionalism,best quality, masterpiece, wallpaper, extremely detailed, detailed eyes, 8k wallpaper, focus on face, painting by colored pencil, traditional media, light,<lora:lzastory_6000:1>",
   },
   法官: {
     node: (
@@ -86,7 +93,8 @@ const valueStore = {
         </p>
       </>
     ),
-    prompt: "",
+    prompt:
+      "1judge,judge wearing a black or dark formal robe with white collar and cuffs, donning a brightly colored judge's cap, and dressed in a black formal suit with black or dark gray trousers and leather shoes. jhe background is a solemn and dignified courtroom hall, with walls made of dark stone or red brick, floors adorned with glossy marble or wooden planks, a tall wooden lectern and judge's seat with thick armrests, equipped with modern touch-screen displays and a red courtroom flag, as well as seating and witness stands,best quality, masterpiece, wallpaper, extremely detailed, detailed eyes, 8k wallpaper, focus on face, painting by colored pencil, traditional media, light,<lora:lzastory_6000:1>",
   },
   骑士: {
     node: (
@@ -100,7 +108,8 @@ const valueStore = {
         </p>
       </>
     ),
-    prompt: "",
+    prompt:
+      "1knight,a scene of a knight in a stable, dressed in full armor, including gauntlets, greaves, pauldrons, and a helmet adorned with feathers, perhaps also with the knight's emblem or symbol,the horse may also be wearing armor or decorative ornaments,the environment within the stable is open and expansive, with large stretches of grass and trees,as well as wooden stables and a training arena,sunlight filters through the leaves and illuminates the grass, casting a warm glow over the entire scene,best quality, masterpiece, wallpaper, extremely detailed, detailed eyes, 8k wallpaper, focus on face, painting by colored pencil, traditional media, light,<lora:lzastory_6000:1>",
   },
   将军: {
     node: (
@@ -117,7 +126,8 @@ const valueStore = {
         </p>
       </>
     ),
-    prompt: "",
+    prompt:
+      "1general,a scene of a general in a training ground, dressed in military uniform with a cap or helmet,adorned with identity badges or rank insignias,the training ground is a spacious area, perhaps with large stretches of grass or sand, surrounded by military equipment and vehicles, as well as flags and symbols of the military,the general may be seen inspecting troops, directing training, or meeting with other senior officers,the training ground may be surrounded by mountains or the skyline of a city, and the weather may be sunny or cloudy with a slight breeze,best quality, masterpiece, wallpaper, extremely detailed, detailed eyes, 8k wallpaper, focus on face, painting by colored pencil, traditional media, light,<lora:lzastory_6000:1>",
   },
   伯爵: {
     node: (
@@ -134,7 +144,8 @@ const valueStore = {
         </p>
       </>
     ),
-    prompt: "",
+    prompt:
+      "A scene of a count in a casino, dressed in a luxurious evening gown, perhaps in black or dark colors, with unique details such as shirt, bow tie, cufflinks, and watch.  The environment inside the casino is lavish and elegant, with high ceilings, spacious gaming tables, comfortable seating, and high-quality carpets and chandeliers.  best quality, masterpiece, wallpaper, extremely detailed, detailed eyes, 8k wallpaper, focus on face, painting by colored pencil, traditional media, light,<lora:lzastory_6000:1>",
   },
   国王: {
     node: (
@@ -149,7 +160,7 @@ const valueStore = {
       </>
     ),
     prompt:
-      "1King Dressed in a regal robe with a crown on his head, sitting on a throne made of gold and jewels, having a scepter in hand as a symbol of his power and authority,best face,best eye,best mouth,best quality, 8k <lora:lzastory_6000:1> ",
+      "1king,a scene of a king in a palace, dressed in a magnificent king's robe and wearing a crown, with the robe possibly in red or purple and adorned with gold thread and jewels,the environment inside the palace is extremely luxurious, with high ceilings, huge crystal chandeliers, murals and paintings, and exquisitely carved columns and gardens,the king may be seated on a throne, dealing with state affairs, receiving subjects and nobles, or enjoying court concerts and dances. Other nobles, court officials, and servants may be seen walking around the palace, dressed in magnificent costumes,best quality, masterpiece, wallpaper, extremely detailed, detailed eyes, 8k wallpaper, focus on face, painting by colored pencil, traditional media, light,<lora:lzastory_6000:1>",
   },
 };
 

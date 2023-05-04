@@ -103,14 +103,14 @@ export const img2img = async (
     .post("/sdapi/v1/img2img", {
       init_images,
       prompt: word,
-      sampler_name: "DDIM",
-      steps: 27,
-      cfg_scale: 7.0,
+      sampler_name: "DPM++ 2S a Karras",
+      steps: 24,
+      cfg_scale: 8.0,
       width: 500,
       height: 760,
       mask: null,
       negative_prompt:
-        "out of frame, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs, cloned face, disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers",
+        "(cgi, 3d, render, sketch, cartoon, anime:1.4), text, close up, cropped, out of frame, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs,  disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck",
       alwayson_scripts: alwayson_scripts,
       resize_mode: options.resize_mode ?? 0,
       denoising_strength: options.denoising_strength ?? 0.75,
