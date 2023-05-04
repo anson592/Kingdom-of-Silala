@@ -9,6 +9,8 @@ import diamond from "@/assets/images/diamond.png";
 import drinkGreen from "@/assets/images/drink-green.png";
 import drinkBlue from "@/assets/images/drink-blue.png";
 import drinkYellow from "@/assets/images/drink-yellow.png";
+import pbSrc from "@/assets/images/pb.png";
+import beforeSrc from "@/assets/before.aac";
 
 import king from "@/assets/images/king.png";
 
@@ -16,7 +18,7 @@ import "./index.scss";
 import { Typed, ZZZ, Button } from "@/components";
 
 const Home = () => {
-  const [step, setStep] = useState(0);
+  const [step, setStep] = useState(-1);
   const navigate = useNavigate();
 
   const nextStep = () => {
@@ -33,6 +35,9 @@ const Home = () => {
   );
 
   useEffect(() => {
+    if (step === -1) {
+      return;
+    }
     const handleKeyDown = (e: KeyboardEvent) => {
       const { key } = e;
       if (key === "Enter" || key === " ") {
@@ -43,11 +48,56 @@ const Home = () => {
         nextStep();
       }
     };
-    window.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("keydown", handleKeyDown);
     return () => {
-      window.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("keydown", handleKeyDown);
     };
   }, [setStep, step]);
+
+  useEffect(() => {
+    const bgm = new Audio(beforeSrc);
+    bgm.loop = true;
+    const hidden = () => {
+      bgm.play();
+    };
+
+    document.addEventListener("click", hidden);
+    document.addEventListener("touchstart", hidden);
+    document.addEventListener("keydown", hidden);
+    return () => {
+      bgm.pause();
+      document.removeEventListener("click", hidden);
+      document.removeEventListener("touchstart", hidden);
+      document.removeEventListener("keydown", hidden);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (step !== -1) {
+      return;
+    }
+    const hidden = () => {
+      setStep(0);
+    };
+
+    document.addEventListener("click", hidden);
+    document.addEventListener("touchstart", hidden);
+    document.addEventListener("keydown", hidden);
+    return () => {
+      document.removeEventListener("click", hidden);
+      document.removeEventListener("touchstart", hidden);
+      document.removeEventListener("keydown", hidden);
+    };
+  }, [step]);
+
+  if (step === -1) {
+    return (
+      <img
+        src={pbSrc}
+        className={`fixed top-0 left-0 w-[100vw] h-[100vh] object-cover z-50 cursor-pointer`}
+      />
+    );
+  }
 
   if (step === 0) {
     return (
