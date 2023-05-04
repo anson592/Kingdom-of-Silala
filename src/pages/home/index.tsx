@@ -121,7 +121,7 @@ const Home = () => {
         <Typed className="text-3xl lh-2" changeSize={(i) => i + 1}>
           这是一个远离尘世的国度，有着与众不同的传统和竞赛
         </Typed>
-        <Typed className="text-3xl lh-2" delay={2400} onEnd={nextStep}>
+        <Typed className="text-3xl lh-2" delay={1500} onEnd={nextStep}>
           房子是由蜜汁饼干和巧克力砌成的
         </Typed>
         {wallEle}
@@ -139,7 +139,7 @@ const Home = () => {
         key={step}
       >
         <Typed>天上飞的都是烤熟的鸭子和各种美味的飞鸟</Typed>
-        <Typed delay={2000} onEnd={nextStep}>
+        <Typed delay={1100} onEnd={nextStep}>
           只要你招招手，它们就会飞进你的嘴巴
         </Typed>
         {wallEle}
@@ -160,7 +160,7 @@ const Home = () => {
       >
         <div className="flex flex-col items-center absolute left-[6rem]">
           <Typed delay={800}>树上长满了金币，</Typed>
-          <Typed delay={800 + 800} onEnd={nextStep}>
+          <Typed delay={800 + 600} onEnd={nextStep}>
             金子和树叶一样普通
           </Typed>
         </div>
@@ -212,7 +212,7 @@ const Home = () => {
       >
         <div className="flex flex-col items-center absolute left-[6rem]">
           <Typed delay={800}>只要你睡一觉，</Typed>
-          <Typed delay={800 + 800} onEnd={nextStep}>
+          <Typed delay={800 + 600} onEnd={nextStep}>
             就会奖励一颗钻石
           </Typed>
         </div>
