@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from "react";
 import "./index.scss";
+import pressSrc from "@/assets/press.mp3";
 
 export interface TypedProps extends React.HTMLAttributes<HTMLSpanElement> {
   children?: React.ReactNode;
@@ -22,7 +23,7 @@ const Typed: React.FC<TypedProps> = ({
   size,
   max,
   delay,
-  speed = 100,
+  speed = 50,
   ...rest
 }) => {
   const el = useRef<HTMLSpanElement>(null);
@@ -33,6 +34,22 @@ const Typed: React.FC<TypedProps> = ({
   );
 
   const oneStep = 1.1;
+
+  useEffect(() => {
+    if (!start) {
+      return;
+    }
+    const bgm = new Audio(pressSrc);
+    bgm.loop = true;
+    bgm.play();
+    const id = setTimeout(() => {
+      bgm.pause();
+    }, speed * _size);
+    return () => {
+      clearTimeout(id);
+      bgm.pause();
+    };
+  }, [start, _size, speed]);
 
   useEffect(() => {
     if (!start || !el.current) {

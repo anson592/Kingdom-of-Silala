@@ -26,7 +26,10 @@ const Home = () => {
   };
 
   const wallEle = (
-    <img src={wall} className="absolute bottom-0 left-0 w-[100vw] z-10" />
+    <img
+      src={wall}
+      className="absolute bottom-0 left-0 w-[100vw] z-10 pointer-events-none"
+    />
   );
 
   useEffect(() => {
