@@ -4,7 +4,7 @@ import styles from "./index.module.scss";
 import { Process } from "../../components/process";
 import { QRCode, message } from "antd";
 import Print from "../print";
-import { Typed } from "@/components";
+import { Typed, Button } from "@/components";
 
 import { img2img } from "../../api/socket";
 
@@ -222,9 +222,9 @@ const Result = () => {
       <div className="flex flex-row w-[100vw] h-[100vh] items-center justify-center fade-in">
         <div className="flex flex-col h-full pt-16">
           <img src={img} alt="" className="h-[368px]" />
-          <button className="mt-16 text-3xl w-full" onClick={handlePrint}>
+          <Button className="mt-16 text-3xl w-full" onClick={handlePrint}>
             打 印
-          </button>
+          </Button>
         </div>
         <div className="flex flex-col items-center h-full pt-16 pl-16">
           <div className="h-[368px] flex flex-col-reverse">

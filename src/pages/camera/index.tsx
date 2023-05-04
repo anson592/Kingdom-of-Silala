@@ -3,7 +3,7 @@ import { useCamera } from "@/hooks";
 import styles from "./index.module.scss";
 import { useNavigate } from "react-router";
 import wall from "@/assets/images/wall.png";
-import { Typed, ZZZ } from "@/components";
+import { Typed, ZZZ, Button } from "@/components";
 
 const CameraPage = () => {
   const [cameraRef, startCamera, stopCamera, takePhoto] = useCamera();
@@ -60,9 +60,9 @@ const CameraPage = () => {
           )}
         </div>
         <div className="py-[2rem]">
-          <button className="text-3xl w-[200px]" onClick={handleTakePhoto}>
+          <Button className="text-3xl w-[200px]" onClick={handleTakePhoto}>
             拍 照
-          </button>
+          </Button>
         </div>
         <span className="text-3xl">请点击按钮获取准考证照片</span>
       </div>

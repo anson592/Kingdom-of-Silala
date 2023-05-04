@@ -13,7 +13,7 @@ import drinkYellow from "@/assets/images/drink-yellow.png";
 import king from "@/assets/images/king.png";
 
 import "./index.scss";
-import { Typed, ZZZ } from "@/components";
+import { Typed, ZZZ, Button } from "@/components";
 
 const Home = () => {
   const [step, setStep] = useState(0);
@@ -58,9 +58,9 @@ const Home = () => {
         <Typed className="text-6xl" size={9} delay={800} max={10}>
           欢迎来到西拉拉国!!!
         </Typed>
-        <button className="text-4xl" onClick={() => setStep(1)}>
+        <Button className="text-4xl" onClick={() => setStep(1)}>
           进 入
-        </button>
+        </Button>
       </div>
     );
   }
@@ -272,14 +272,14 @@ const Home = () => {
       >
         那么，你是否准备好踏上这场奇妙的冒险了吗?
       </p>
-      <button
+      <Button
         className="text-3xl mt-[6rem]"
         onClick={() => {
           navigate("/camera");
         }}
       >
         进 入
-      </button>
+      </Button>
     </div>
   );
 };
