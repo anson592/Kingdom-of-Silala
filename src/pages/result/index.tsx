@@ -170,6 +170,7 @@ const Result = () => {
   const { state } = location;
 
   const [img, setImg] = useState<string | null>();
+  const [code, setCode] = useState<string | null>();
   const [print, setPrint] = useState<boolean>(false);
 
   useEffect(() => {
@@ -195,7 +196,8 @@ const Result = () => {
       valueStore[state.value as keyof typeof valueStore].prompt!
     )
       .then((res) => {
-        setImg(res);
+        setImg(res.base64);
+        setCode(res.url);
       })
       .catch((err) => {
         console.error("err", err);
@@ -217,7 +219,7 @@ const Result = () => {
     setPrint(true);
   };
 
-  if (img) {
+  if (img && code) {
     return (
       <div className="flex flex-row w-[100vw] h-[100vh] items-center justify-center fade-in">
         <div className="flex flex-col h-full pt-16">
@@ -229,7 +231,7 @@ const Result = () => {
         <div className="flex flex-col items-center h-full pt-16 pl-16">
           <div className="h-[368px] flex flex-col-reverse">
             <QRCode
-              value={img}
+              value={code}
               color="white"
               style={{
                 backgroundColor: "black",
