@@ -16,10 +16,10 @@ const valueStore = {
           恭喜你被西拉拉国
           <span className="text-6xl ml-3">驱逐！</span>
         </Typed>
-        <p>
-          <Typed delay={1400}>“善良、正直、不和邪恶同流合污的人，</Typed>
-          <Typed delay={1400 + 2000}>就会被无情地赶出这个国家，因为</Typed>
-          <Typed delay={1400 + 2000 + 1400}>人们都不欢迎这样的人。“</Typed>
+        <p className="pb-9">
+          <Typed delay={2100}>“善良、正直、不和邪恶同流合污的人，</Typed>
+          <Typed delay={2100 + 3000}>就会被无情地赶出这个国家，因为人们</Typed>
+          <Typed delay={2100 + 3000 + 2600}>都不欢迎这样的人。“</Typed>
         </p>
       </>
     ),
@@ -32,13 +32,13 @@ const valueStore = {
           恭喜你成为西拉拉国的<span className="text-6xl ml-3">平民！</span>
         </Typed>
         <p>
-          <Typed delay={1600}>
+          <Typed delay={2400}>
             “这个国家鼓励大家不要去工作，所以每个人都爱
           </Typed>
-          <Typed delay={1600 + 2200}>
+          <Typed delay={2400 + 3300}>
             睡觉，只要你睡觉，就会有人奖励你一颗钻石。
           </Typed>
-          <Typed delay={1600 + 2200 + 2200}>
+          <Typed delay={2400 + 3300 + 3200}>
             喜欢抽烟喝酒的人，也会得到奖赏。“
           </Typed>
         </p>
@@ -56,8 +56,10 @@ const valueStore = {
           恭喜你成为西拉拉国的<span className="text-6xl ml-3">警察！</span>
         </Typed>
         <p>
-          <Typed delay={1600}>“爱赌博、爱说谎的人就更得意了，他们通常</Typed>
-          <Typed delay={1600 + 2200}>都是法官、警察和银行家。“</Typed>
+          <Typed delay={2500}>
+            “爱赌博、爱说谎的人就更得意了，他们通常都是
+          </Typed>
+          <Typed delay={2500 + 3300}>法官、警察和银行家。“</Typed>
         </p>
       </>
     ),
@@ -73,8 +75,10 @@ const valueStore = {
           恭喜你成为西拉拉国的<span className="text-6xl ml-3">银行家！</span>
         </Typed>
         <p>
-          <Typed delay={1800}>“爱赌博、爱说谎的人就更得意了，他们通常</Typed>
-          <Typed delay={1800 + 2200}>都是法官、警察和银行家。“</Typed>
+          <Typed delay={2500}>
+            “爱赌博、爱说谎的人就更得意了，他们通常都是
+          </Typed>
+          <Typed delay={2500 + 3300}>法官、警察和银行家。“</Typed>
         </p>
       </>
     ),
@@ -88,8 +92,10 @@ const valueStore = {
           恭喜你成为西拉拉国的<span className="text-6xl ml-3">法官！</span>
         </Typed>
         <p>
-          <Typed delay={1600}>“爱赌博、爱说谎的人就更得意了，他们通常</Typed>
-          <Typed delay={1600 + 2200}>都是法官、警察和银行家。“</Typed>
+          <Typed delay={2500}>
+            “爱赌博、爱说谎的人就更得意了，他们通常都是
+          </Typed>
+          <Typed delay={2500 + 3300}>法官、警察和银行家。“</Typed>
         </p>
       </>
     ),
@@ -103,8 +109,10 @@ const valueStore = {
           恭喜你成为西拉拉国的<span className="text-6xl ml-3">骑士！</span>
         </Typed>
         <p>
-          <Typed delay={1600}>“当官的人什么都不用做，只需要互相吹捧，</Typed>
-          <Typed delay={1600 + 2200}>他们的官就会越做越大。“</Typed>
+          <Typed delay={2500}>
+            “当官的人什么都不用做，只需要互相吹捧，他们
+          </Typed>
+          <Typed delay={2500 + 3300}>的官就会越做越大。“</Typed>
         </p>
       </>
     ),
@@ -118,11 +126,12 @@ const valueStore = {
           恭喜你成为西拉拉国的<span className="text-6xl ml-3">将军！</span>
         </Typed>
         <p>
-          <Typed delay={1600}>“最愚蠢、最不讲道理的人就能得到贵族的称</Typed>
-          <Typed delay={1600 + 2200}>
-            号，最会享受和玩乐的人，就能得到伯爵的爵
+          <Typed delay={2300}>
+            “最愚蠢、最不讲道理的人就能得到贵族的称号，
           </Typed>
-          <Typed delay={1600 + 2200 + 2200}>位。“</Typed>
+          <Typed delay={2300 + 3300}>
+            最会享受和玩乐的人，就能得到伯爵的爵位。“
+          </Typed>
         </p>
       </>
     ),
@@ -136,11 +145,12 @@ const valueStore = {
           恭喜你成为西拉拉国的<span className="text-6xl ml-3">伯爵！</span>
         </Typed>
         <p>
-          <Typed delay={1600}>“最愚蠢、最不讲道理的人就能得到贵族的称</Typed>
-          <Typed delay={1600 + 2200}>
-            号，最会享受和玩乐的人，就能得到伯爵的爵
+          <Typed delay={2300}>
+            “最愚蠢、最不讲道理的人就能得到贵族的称号，
           </Typed>
-          <Typed delay={1600 + 2200 + 2200}>位。“</Typed>
+          <Typed delay={2300 + 3300}>
+            最会享受和玩乐的人，就能得到伯爵的爵位。“
+          </Typed>
         </p>
       </>
     ),
@@ -252,7 +262,7 @@ const Result = () => {
   return (
     <div className="flex flex-col w-[100vw] h-[100vh] items-center justify-center fade-in">
       <div
-        className={`flex flex-col w-[60%] text-3xl ${styles.view}`}
+        className={`flex flex-col w-[64%] text-3xl ${styles.view}`}
         style={{
           lineHeight: 2,
         }}
@@ -261,7 +271,7 @@ const Result = () => {
         {state.value !== "驱逐" && (
           <div className="flex flex-col items-center">
             <Process className="mt-12" maxValue={95} />
-            <span>请等待通行证生成</span>
+            <span className="mt-3 text-3xl">请等待通行证生成</span>
           </div>
         )}
       </div>

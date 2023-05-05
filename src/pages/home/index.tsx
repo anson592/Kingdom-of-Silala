@@ -302,7 +302,7 @@ const Home = () => {
       >
         <div className="flex flex-col items-center absolute left-[6rem] top-[40%]">
           <Typed delay={800} onEnd={nextStep}>
-            喜欢喝酒的人会获得奖赏
+            喜欢喝酒的人，会获得奖赏
           </Typed>
         </div>
         {/* <img src={drinkP} className="h-[100vh] z-20 absolute right-0 top-0" /> */}
@@ -368,7 +368,7 @@ const Home = () => {
   if (step === 6) {
     return (
       <div
-        className="w-[100vw] fade-in h-[100vh] flex flex-col items-center justify-center text-xl overflow-hidden relative"
+        className="w-[100vw] fade-in h-[100vh] flex flex-col items-center justify-center text-2xl overflow-hidden relative"
         style={{
           lineHeight: 2,
         }}
@@ -407,7 +407,7 @@ const Home = () => {
           lineHeight: 2,
         }}
       >
-        那么，你是否准备好踏上这场奇妙的冒险了吗?
+        那么，你准备好踏上这场奇妙的冒险了吗?
       </Typed>
       <Button
         className="text-3xl mt-[6rem]"

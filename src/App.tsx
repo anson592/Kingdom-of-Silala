@@ -20,7 +20,7 @@ const BGM = ({ children }: { children: React.ReactNode }) => {
     }
     const bgm = new Audio(afterSrc);
     bgm.loop = true;
-    bgm.play();
+    // bgm.play();
     return () => {
       bgm.pause();
     };

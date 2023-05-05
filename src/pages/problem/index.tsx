@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { useLocation, useNavigate } from "react-router";
 import styles from "./index.module.scss";
 import wall from "@/assets/images/wall.png";
+import click from "@/assets/click.wav";
 
 function buttonPressed(b: any) {
   if (typeof b == "object") {
@@ -24,7 +25,7 @@ const problems = [
         value: "平民",
       },
       {
-        text: "你在巧克力赌场抽烟赌博",
+        text: "你在巧克力赌场赌博",
         value: 2,
       },
     ],
@@ -185,6 +186,8 @@ const Problem = () => {
 
   const handleClick = (option: ProblemOption) => {
     if (typeof option.value === "number") {
+      const bgm = new Audio(click);
+      bgm.play();
       setCurrentProblemIndex(option.value);
       setSelectedOptionIndex(-1);
       return;
@@ -201,6 +204,9 @@ const Problem = () => {
     // 监控ws与上下方向键，以及Enter键/Space键，用来设置selectedOptionIndex以及跳转
     const handleKeyDown = (e: KeyboardEvent) => {
       const { key } = e;
+
+      const bgm = new Audio(click);
+      bgm.play();
 
       if (selectedOptionIndex === -1) {
         setSelectedOptionIndex(0);
@@ -260,7 +266,7 @@ const Problem = () => {
   return (
     <div className="flex flex-col w-[100vw] h-[100vh] items-center">
       <div
-        className="flex flex-col pl-[8rem] pt-[7rem] w-full items-center fade-in"
+        className="flex flex-col pl-[12rem] pt-[9rem] w-full items-center fade-in"
         key={currentProblemIndex}
       >
         <div className="text-3xl w-full mb-[3rem]">
@@ -275,6 +281,10 @@ const Problem = () => {
                   selectedOptionIndex === index ? styles["option-active"] : ""
                 }`}
                 onClick={() => handleClick(option)}
+                onMouseOver={() => {
+                  const bgm = new Audio(click);
+                  bgm.play();
+                }}
               >
                 {`${String.fromCharCode(65 + index)}. ${option.text}`}
               </div>
@@ -284,14 +294,19 @@ const Problem = () => {
         {currentProblem.options.length >= 4 && (
           <div className={"flex flex-row flex-wrap w-[100%]"}>
             {currentProblem.options.map((option, index) => (
-              <div
-                key={index}
-                className={`${styles.option} w-[40%] ${
-                  selectedOptionIndex === index ? styles["option-active"] : ""
-                }`}
-                onClick={() => handleClick(option)}
-              >
-                {`${String.fromCharCode(65 + index)}. ${option.text}`}
+              <div className="w-[40%]" key={index}>
+                <div
+                  className={`${styles.option} w-[max-content] ${
+                    selectedOptionIndex === index ? styles["option-active"] : ""
+                  }`}
+                  onClick={() => handleClick(option)}
+                  onMouseOver={() => {
+                    const bgm = new Audio(click);
+                    bgm.play();
+                  }}
+                >
+                  {`${String.fromCharCode(65 + index)}. ${option.text}`}
+                </div>
               </div>
             ))}
           </div>

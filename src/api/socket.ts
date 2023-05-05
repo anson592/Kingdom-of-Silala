@@ -103,7 +103,7 @@ export const img2img = async (
   return await new Promise((resolve) => {
     setTimeout(() => {
       resolve(null);
-    }, 10000);
+    }, 100000);
   }).then(() => {
     const base64Src = baseImgSrc;
     return uploadFile(dataURLtoFile(base64Src, "result"), "result").then(

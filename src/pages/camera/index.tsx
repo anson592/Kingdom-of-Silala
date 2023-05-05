@@ -63,21 +63,21 @@ const CameraPage = () => {
         <div>
           {!photo ? (
             <div
-              className={`w-[200px] h-[320px] ${styles.preview}`}
+              className={`w-[150px] h-[240px] ${styles.preview}`}
               ref={cameraRef}
             />
           ) : (
-            <div className={`w-[200px] h-[320px] ${styles.preview}`}>
+            <div className={`w-[150px] h-[240px] ${styles.preview}`}>
               <img src={photo} />
             </div>
           )}
         </div>
         <div className="py-[2rem]">
-          <Button className="text-3xl w-[200px]" onClick={handleTakePhoto}>
+          <Button className="text-2xl w-[150px]" onClick={handleTakePhoto}>
             拍 照
           </Button>
         </div>
-        <span className="text-3xl">请点击按钮获取准考证照片</span>
+        <span className="text-3xl">请点击按钮获取参赛证照片</span>
       </div>
     );
   }
@@ -101,7 +101,7 @@ const CameraPage = () => {
         }}
       >
         <Typed changeSize={(s) => s - 4}>
-          欢迎来到西拉拉国,你现在陷入沉睡,进入梦中......
+          欢迎来到西拉拉国,你将陷入沉睡,进入梦中......
         </Typed>
       </div>
       <ZZZ className="text-5xl absolute right-[28vh] top-[12vh]" />
