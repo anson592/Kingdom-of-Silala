@@ -121,7 +121,7 @@ const Home = () => {
         <Typed className="text-3xl lh-2" changeSize={(i) => i + 1}>
           这是一个远离尘世的国度，有着与众不同的传统和竞赛
         </Typed>
-        <Typed className="text-3xl lh-2" delay={1500} onEnd={nextStep}>
+        <Typed className="text-3xl lh-2" delay={3800} onEnd={nextStep}>
           房子是由蜜汁饼干和巧克力砌成的
         </Typed>
         {wallEle}
@@ -139,7 +139,7 @@ const Home = () => {
         key={step}
       >
         <Typed>天上飞的都是烤熟的鸭子和各种美味的飞鸟</Typed>
-        <Typed delay={1100} onEnd={nextStep}>
+        <Typed delay={3000} onEnd={nextStep}>
           只要你招招手，它们就会飞进你的嘴巴
         </Typed>
         {wallEle}
@@ -160,7 +160,7 @@ const Home = () => {
       >
         <div className="flex flex-col items-center absolute left-[6rem]">
           <Typed delay={800}>树上长满了金币，</Typed>
-          <Typed delay={800 + 600} onEnd={nextStep}>
+          <Typed delay={800 + 1200} onEnd={nextStep}>
             金子和树叶一样普通
           </Typed>
         </div>
@@ -212,7 +212,7 @@ const Home = () => {
       >
         <div className="flex flex-col items-center absolute left-[6rem]">
           <Typed delay={800}>只要你睡一觉，</Typed>
-          <Typed delay={800 + 600} onEnd={nextStep}>
+          <Typed delay={800 + 1200} onEnd={nextStep}>
             就会奖励一颗钻石
           </Typed>
         </div>
@@ -287,16 +287,16 @@ const Home = () => {
         }}
       >
         <div className="-mt-[7rem]">
-          <Typed speed={75}>
+          <Typed speed={100}>
             在这里，懒惰、邪恶、粗鲁和愚蠢被当做美德，而善良和正直却不受欢迎。
           </Typed>
-          <Typed speed={75} delay={2500}>
+          <Typed speed={100} delay={3333}>
             每年，西拉拉国都会举行一场盛大的比赛，选拔出最具懒惰、邪恶、粗鲁和
           </Typed>
-          <Typed speed={75} delay={2500 + 2500}>
+          <Typed speed={100} delay={3333 + 3333}>
             愚笨特质的人，他将成为这个国家的国王，而那些拒绝与恶劣行为为伍的善
           </Typed>
-          <Typed speed={75} delay={2500 + 2500 + 2500} onEnd={nextStep}>
+          <Typed speed={100} delay={3333 + 3333 + 3333} onEnd={nextStep}>
             良人士则会被赶出国境。
           </Typed>
         </div>
@@ -314,14 +314,14 @@ const Home = () => {
       className="w-[100vw] h-[100vh] flex flex-col items-center justify-center fade-in"
       key={step}
     >
-      <p
+      <Typed
         className="mt-[2rem] text-3xl"
         style={{
           lineHeight: 2,
         }}
       >
         那么，你是否准备好踏上这场奇妙的冒险了吗?
-      </p>
+      </Typed>
       <Button
         className="text-3xl mt-[6rem]"
         onClick={() => {

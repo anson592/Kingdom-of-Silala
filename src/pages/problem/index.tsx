@@ -31,10 +31,10 @@ const problems = [
   },
   {
     id: 2,
-    question: "在赌桌上，你很快就把筹码输光，这时你选择：",
+    question: "你很快就把筹码输光，这时你选择：",
     options: [
       {
-        text: "去银行抢劫",
+        text: "去街上抢劫",
         value: "警察",
       },
       {
@@ -53,7 +53,7 @@ const problems = [
   },
   {
     id: 3,
-    question: "再次回到赌桌，你遇到了朋友，你选择：",
+    question: "你回到赌桌，遇到了朋友，你选择：",
     options: [
       {
         text: "告诉他你输光了，准备去装睡",
@@ -81,7 +81,7 @@ const problems = [
   },
   {
     id: 5,
-    question: "已经输光了所有财产并欠下大额赌债，你选择：",
+    question: "输光所有财产并欠下大额赌债，你选择：",
     options: [
       {
         text: "努力睡觉",

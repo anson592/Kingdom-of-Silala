@@ -23,7 +23,7 @@ const Typed: React.FC<TypedProps> = ({
   size,
   max,
   delay,
-  speed = 50,
+  speed = 150,
   ...rest
 }) => {
   const el = useRef<HTMLSpanElement>(null);
