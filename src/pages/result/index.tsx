@@ -5,6 +5,7 @@ import { Process } from "../../components/process";
 import { QRCode, message } from "antd";
 import Print from "../print";
 import { Typed, Button } from "@/components";
+import click from "@/assets/click.wav";
 
 import { img2img } from "../../api/socket";
 
@@ -183,6 +184,8 @@ const Result = () => {
   const [code, setCode] = useState<string | null>();
   const [print, setPrint] = useState<boolean>(false);
 
+  const [selectedOptionIndex, setSelectedOptionIndex] = useState<number>(0);
+
   useEffect(() => {
     if (img) {
       return;
@@ -218,6 +221,66 @@ const Result = () => {
       });
   }, [state, img]);
 
+  const handlePrint = () => {
+    setPrint(true);
+  };
+
+  useEffect(() => {
+    // 监控ws与上下方向键，以及Enter键/Space键，用来设置selectedOptionIndex以及跳转
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const { key } = e;
+
+      const bgm = new Audio(click);
+      bgm.play();
+
+      if (selectedOptionIndex === -1) {
+        setSelectedOptionIndex(0);
+        return;
+      }
+
+      if (
+        key === "ArrowUp" ||
+        key === "w" ||
+        key === "W" ||
+        key === "ArrowLeft" ||
+        key === "a" ||
+        key === "A"
+      ) {
+        setSelectedOptionIndex((prevIndex) =>
+          prevIndex === 0 ? 1 : prevIndex - 1
+        );
+      } else if (
+        key === "ArrowDown" ||
+        key === "s" ||
+        key === "S" ||
+        key === "ArrowRight" ||
+        key === "d" ||
+        key === "D"
+      ) {
+        setSelectedOptionIndex((prevIndex) =>
+          prevIndex === 1 ? 0 : prevIndex + 1
+        );
+      }
+
+      if (key === "Enter" || key === " ") {
+        setSelectedOptionIndex((prev) => {
+          if (prev === 0) {
+            handlePrint();
+            navigate("/");
+          } else {
+            navigate("/");
+          }
+          return 0;
+        });
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => {
+      window.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [selectedOptionIndex, handlePrint]);
+
   if (!state || !state.photo || !state.value) {
     return null;
   }
@@ -225,18 +288,19 @@ const Result = () => {
     return <Print src={img ?? ""} onDone={() => setPrint(false)} />;
   }
 
-  const handlePrint = () => {
-    setPrint(true);
-  };
-
   if (img && code) {
     return (
       <div className="flex flex-row w-[100vw] h-[100vh] items-center justify-center fade-in">
         <div className="flex flex-col h-full pt-16">
           <img src={img} alt="" className="h-[368px]" />
-          <Button className="mt-16 text-3xl w-full" onClick={handlePrint}>
+          <div
+            className={`mt-16 text-3xl w-full py-[0.4em] px-[1.2em] text-center border-[0.08em] border-transparent cursor-pointer ${
+              selectedOptionIndex === 0 ? "border-white" : ""
+            }`}
+            onClick={handlePrint}
+          >
             打 印
-          </Button>
+          </div>
         </div>
         <div className="flex flex-col items-center h-full pt-16 pl-16">
           <div className="h-[368px] flex flex-col-reverse">
@@ -251,8 +315,13 @@ const Result = () => {
               }}
             />
           </div>
-          <span className="mt-16 text-3xl py-[0.4em] px-[1.2em] border-[0.08em] border-transparent">
-            拜拜
+          <span
+            className={`mt-16 text-3xl py-[0.4em] px-[1.2em] border-[0.08em] border-transparent cursor-pointer ${
+              selectedOptionIndex === 1 ? "border-white" : ""
+            }`}
+            onClick={() => navigate("/")}
+          >
+            拜 拜
           </span>
         </div>
       </div>

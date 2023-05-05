@@ -94,10 +94,12 @@ const Home = () => {
 
   if (step === -1) {
     return (
-      <img
-        src={pbSrc}
-        className={`fixed top-0 left-0 w-[100vw] h-[100vh] object-cover z-50 cursor-pointer`}
-      />
+      <>
+        <img
+          src={pbSrc}
+          className={`fixed top-0 left-0 w-[100vw] h-[100vh] object-cover z-50 cursor-pointer`}
+        />
+      </>
     );
   }
 
