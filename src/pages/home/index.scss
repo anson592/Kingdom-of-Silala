@@ -44,7 +44,7 @@
 .coin {
   transform: translateY(-100vh);
   animation: coin-in linear forwards;
-  animation-duration: 3s;
+  animation-duration: var(--duration);
 }
 
 @keyframes coin-in {
@@ -59,12 +59,12 @@
 .drink {
   transform: translateY(-50vh);
   animation: drink-in linear forwards;
-  animation-duration: 1.5s;
+  animation-duration: var(--duration);
 }
 .big-drink {
   transform: translateY(-50vh) scale(2.55);
   animation: big-drink-in linear forwards;
-  animation-duration: 1.5s;
+  animation-duration: var(--duration);
 }
 
 @keyframes drink-in {

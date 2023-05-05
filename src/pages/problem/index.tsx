@@ -186,6 +186,7 @@ const Problem = () => {
   const handleClick = (option: ProblemOption) => {
     if (typeof option.value === "number") {
       setCurrentProblemIndex(option.value);
+      setSelectedOptionIndex(-1);
       return;
     }
     navigate("/result", {
@@ -270,7 +271,7 @@ const Problem = () => {
             {currentProblem.options.map((option, index) => (
               <div
                 key={index}
-                className={`${styles.option} w-full ${
+                className={`${styles.option} ${
                   selectedOptionIndex === index ? styles["option-active"] : ""
                 }`}
                 onClick={() => handleClick(option)}

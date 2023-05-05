@@ -41,6 +41,19 @@ const CameraPage = () => {
     }, 5000);
   };
 
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      const { key } = e;
+      if (key === "Enter" || key === " ") {
+        handleTakePhoto();
+      }
+    };
+    document.addEventListener("keydown", handleKeyDown);
+    return () => {
+      document.removeEventListener("keydown", handleKeyDown);
+    };
+  }, [handleTakePhoto]);
+
   if (step === 0) {
     return (
       <div

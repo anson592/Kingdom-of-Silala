@@ -17,6 +17,8 @@ import king from "@/assets/images/king.png";
 import "./index.scss";
 import { Typed, ZZZ, Button } from "@/components";
 
+const getDuration = () => Math.max(1, Math.random() * 3);
+
 const Home = () => {
   const [step, setStep] = useState(-1);
   const navigate = useNavigate();
@@ -167,34 +169,74 @@ const Home = () => {
         <img
           className="h-[100vh] right-0 top-0 absolute z-20 fade-in"
           src={tree}
+          style={
+            {
+              "--duration": `${getDuration()}s`,
+            } as any
+          }
         />
         <img
           src={coin}
           className="coin w-[13.5vh] absolute right-[77.5vh] top-[65.5vh] z-50"
+          style={
+            {
+              "--duration": `${getDuration()}s`,
+            } as any
+          }
         />
         <img
           src={coin}
           className="coin w-[13.5vh] absolute right-[46.4vh] top-[58.9vh] z-50"
+          style={
+            {
+              "--duration": `${getDuration()}s`,
+            } as any
+          }
         />
         <img
           src={coin}
           className="coin w-[13.5vh] absolute right-[35.7vh] top-[35.7vh] z-50"
+          style={
+            {
+              "--duration": `${getDuration()}s`,
+            } as any
+          }
         />
         <img
           src={coin}
           className="coin w-[13.5vh] absolute right-[22.2vh] top-[24.3vh] z-50"
+          style={
+            {
+              "--duration": `${getDuration()}s`,
+            } as any
+          }
         />
         <img
           src={coin}
           className="coin w-[13.5vh] absolute -right-[0.8vh] top-[42.3vh] z-50"
+          style={
+            {
+              "--duration": `${getDuration()}s`,
+            } as any
+          }
         />
         <img
           src={coin}
           className="coin w-[16vh] absolute right-[4.7vh] top-[-3.2vh] z-50"
+          style={
+            {
+              "--duration": `${getDuration()}s`,
+            } as any
+          }
         />
         <img
           src={coin}
           className="coin w-[20vh] absolute right-[14.9vh] top-[47.3vh] z-50"
+          style={
+            {
+              "--duration": `${getDuration()}s`,
+            } as any
+          }
         />
         {wallEle}
       </div>
@@ -220,14 +262,29 @@ const Home = () => {
         <img
           src={diamond}
           className="coin w-[13.5vh] absolute right-[50.4vh] top-[45.4vh] z-50"
+          style={
+            {
+              "--duration": `${getDuration()}s`,
+            } as any
+          }
         />
         <img
           src={diamond}
           className="coin w-[14.8vh] absolute right-[37vh] top-[10vh] z-50"
+          style={
+            {
+              "--duration": `${getDuration()}s`,
+            } as any
+          }
         />
         <img
           src={diamond}
           className="coin w-[34.4vh] absolute right-[14.8vh] top-[25.8vh] z-50"
+          style={
+            {
+              "--duration": `${getDuration()}s`,
+            } as any
+          }
         />
         {wallEle}
       </div>
@@ -252,26 +309,56 @@ const Home = () => {
         <img
           src={drinkGreen}
           className="drink w-[50vh] absolute right-[57.5vh] top-[45.7vh] z-50"
+          style={
+            {
+              "--duration": `${getDuration()}s`,
+            } as any
+          }
         />
         <img
           src={drinkGreen}
           className="drink w-[70vh] absolute -right-[18.3vh] -top-[21vh] z-50"
+          style={
+            {
+              "--duration": `${getDuration()}s`,
+            } as any
+          }
         />
         <img
           src={drinkBlue}
           className="drink w-[45vh] absolute right-[95vh] top-[1.5vh] z-50"
+          style={
+            {
+              "--duration": `${getDuration()}s`,
+            } as any
+          }
         />
         <img
           src={drinkBlue}
           className="drink w-[44.5vh] absolute -right-[11.9vh] top-[35.2vh] z-50"
+          style={
+            {
+              "--duration": `${getDuration()}s`,
+            } as any
+          }
         />
         <img
           src={drinkYellow}
           className="drink w-[41vh] absolute right-[77.2vh] -top-[6vh] z-50"
+          style={
+            {
+              "--duration": `${getDuration()}s`,
+            } as any
+          }
         />
         <img
           src={drinkYellow}
           className="big-drink h-[70vh] absolute right-[6.9vh] top-[18vh] z-50"
+          style={
+            {
+              "--duration": `${getDuration()}s`,
+            } as any
+          }
         />
         {wallEle}
       </div>

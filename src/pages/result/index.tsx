@@ -154,8 +154,8 @@ const valueStore = {
           恭喜你成为西拉拉国的<span className="text-6xl ml-3">国王！</span>
         </Typed>
         <p>
-          <Typed delay={1600}>“最懒惰、邪恶、粗鲁、愚笨的人，这个人</Typed>
-          <Typed delay={1600 + 2200}>就是西拉拉国的国王了。“</Typed>
+          <Typed delay={2400}>“最懒惰、邪恶、粗鲁、愚笨的人，这个人</Typed>
+          <Typed delay={2400 + 3300}>就是西拉拉国的国王了。“</Typed>
         </p>
       </>
     ),
