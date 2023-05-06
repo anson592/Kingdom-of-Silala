@@ -222,7 +222,8 @@ const Result = () => {
   }, [state, img]);
 
   const handlePrint = () => {
-    setPrint(true);
+    navigate("/");
+    // setPrint(true);
   };
 
   useEffect(() => {
