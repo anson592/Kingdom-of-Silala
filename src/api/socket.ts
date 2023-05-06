@@ -83,6 +83,7 @@ export const img2img = async (
     module: CONTROL_NET_MODULE,
     resize_mode: "Scale to Fit (Inner Fit)",
     lowvram: false,
+    weight: 0.5,
     processor_res: 512,
     threshold_a: 100,
     threshold_b: 200,
