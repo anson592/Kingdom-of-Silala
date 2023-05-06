@@ -340,7 +340,7 @@ const Result = () => {
         {valueStore[state.value as keyof typeof valueStore].node}
         {state.value !== "驱逐" && (
           <div className="flex flex-col items-center">
-            <Process className="mt-12" speed={100} maxValue={100} />
+            <Process className="mt-12" speed={600} maxValue={100} />
             <span className="mt-3 text-3xl">请等待通行证生成</span>
           </div>
         )}

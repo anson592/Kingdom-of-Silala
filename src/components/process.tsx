@@ -25,9 +25,9 @@ export const Process: React.FC<ProcessProps> = ({
           onMax?.();
           return maxValue;
         }
-        // if (v >= maxValue - 10) {
-        //   return v + 0.1;
-        // }
+        if (v >= maxValue - 10) {
+          return v + 0.1;
+        }
         return v + 1;
       });
     }, speed);
