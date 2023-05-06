@@ -100,19 +100,19 @@ export const img2img = async (
 
   const init_images = [img];
 
-  return await new Promise((resolve) => {
-    setTimeout(() => {
-      resolve(null);
-    }, 10000);
-  }).then(() => {
-    const base64Src = baseImgSrc;
-    return uploadFile(dataURLtoFile(base64Src, "result"), "result").then(
-      (res: any) => ({
-        base64: base64Src,
-        url: `${UPLOAD_DOMAIN}${res.key}`,
-      })
-    );
-  });
+  // return await new Promise((resolve) => {
+  //   setTimeout(() => {
+  //     resolve(null);
+  //   }, 10000);
+  // }).then(() => {
+  //   const base64Src = baseImgSrc;
+  //   return uploadFile(dataURLtoFile(base64Src, "result"), "result").then(
+  //     (res: any) => ({
+  //       base64: base64Src,
+  //       url: `${UPLOAD_DOMAIN}${res.key}`,
+  //     })
+  //   );
+  // });
 
   return await axiosClient
     .post("/sdapi/v1/img2img", {
