@@ -74,32 +74,31 @@ export const img2img = async (
   word: string,
   options: any = {}
 ): Promise<any> => {
-  const img = await blobToBase64(blob);
+  const img = ((await blobToBase64(blob)) as string).split(";base64,")[1];
 
   const controlNetConfig = {
-    input_image: [img],
-    mask: null,
+    enabled: true,
+    input_image: img,
+    // mask: null,
     model: CONTROL_NET_MODEL,
     module: CONTROL_NET_MODULE,
-    resize_mode: "Scale to Fit (Inner Fit)",
-    lowvram: false,
+    // resize_mode: "Scale to Fit (Inner Fit)",
+    // lowvram: false,
     weight: 0.5,
-    processor_res: 512,
+    // processor_res: 512,
     threshold_a: 100,
     threshold_b: 200,
     guidance: 1,
     guidance_start: 0,
     guidance_end: 1,
-    guessmode: false,
+    guessmode: true,
   };
 
   const alwayson_scripts = {
-    ControlNet: {
+    controlnet: {
       args: [controlNetConfig],
     },
   };
-
-  const init_images = [img];
 
   // return await new Promise((resolve) => {
   //   setTimeout(() => {
@@ -116,53 +115,24 @@ export const img2img = async (
   // });
 
   return await axiosClient
-    .post("/sdapi/v1/img2img", {
-      init_images,
+    .post("/sdapi/v1/txt2img", {
+      init_images: [img],
       prompt: word,
       sampler_name: "DPM++ 2S a Karras",
       steps: 24,
-      cfg_scale: 8.0,
+      cfg_scale: 8,
+      denoising_strength: 0.75,
+      image_cfg_scale: 8,
       width: 500,
       height: 760,
       mask: null,
+      override_settings: {
+        sd_model_checkpoint: "v1-5-pruned-emaonly.safetensors [6ce0161689]",
+      },
       negative_prompt:
         "(cgi, 3d, render, sketch, cartoon, anime:1.4), text, close up, cropped, out of frame, worst quality, low quality, jpeg artifacts, ugly, duplicate, morbid, mutilated, extra fingers, mutated hands, poorly drawn hands, poorly drawn face, mutation, deformed, blurry, dehydrated, bad anatomy, bad proportions, extra limbs,  disfigured, gross proportions, malformed limbs, missing arms, missing legs, extra arms, extra legs, fused fingers, too many fingers, long neck",
       alwayson_scripts: alwayson_scripts,
-      resize_mode: options.resize_mode ?? 0,
-      denoising_strength: options.denoising_strength ?? 0.75,
-      image_cfg_scale: options.image_cfg_scale ?? 1.5,
-      mask_blur: options.mask_blur ?? 4,
-      inpainting_fill: options.inpainting_fill ?? 0,
-      inpaint_full_res: options.inpaint_full_res ?? true,
-      inpaint_full_res_padding: options.inpaint_full_res_padding ?? 0,
-      inpainting_mask_invert: options.inpainting_mask_invert ?? 0,
-      initial_noise_multiplier: options.initial_noise_multiplier ?? 1,
-      styles: options.styles ?? [],
-      seed: options.seed ?? -1,
-      subseed: options.subseed ?? -1,
-      subseed_strength: options.subseed_strength ?? 0,
-      seed_resize_from_h: options.seed_resize_from_h ?? 0,
-      seed_resize_from_w: options.seed_resize_from_w ?? 0,
-      batch_size: options.batch_size ?? 1,
-      n_iter: options.n_iter ?? 1,
-      restore_faces: options.restore_faces ?? false,
-      tiling: options.tiling ?? false,
-      do_not_save_samples: options.do_not_save_samples ?? false,
-      do_not_save_grid: options.do_not_save_grid ?? false,
-      eta: options.eta ?? 1.0,
-      s_churn: options.s_churn ?? 0,
-      s_tmax: options.s_tmax ?? 0,
-      s_tmin: options.s_tmin ?? 0,
-      s_noise: options.s_noise ?? 1,
-      override_settings: options.override_settings ?? {},
-      override_settings_restore_afterwards:
-        options.override_settings_restore_afterwards ?? true,
-      script_args: options.script_args ?? [],
-      include_init_images: options.include_init_images ?? false,
-      script_name: options.script_name ?? null,
-      send_images: options.send_images ?? true,
-      save_images: options.save_images ?? false,
-      use_deprecated_controlnet: options.use_deprecated_controlnet ?? false,
+      // controlnet_units: [controlNetConfig],
     })
     .then((res) => {
       const base64Src = `data:image/png;base64,${res.data.images[0]}`;
