@@ -23,7 +23,7 @@ export const useCamera = () => {
     navigator.mediaDevices
       .getUserMedia({
         video: {
-          facingMode: "environment",
+          facingMode: "user",
         },
       })
       .then((stream) => {
