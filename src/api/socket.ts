@@ -151,3 +151,23 @@ export const getModels = async (): Promise<string[]> => {
   );
   return response.data.module_list;
 };
+
+export const print = async (url: string) => {
+  return await fetch("https://www.eyprint.com/public/", {
+    method: "POST",
+    headers: {
+      "Content-Type": "x-www-form-urlencoded",
+    },
+    body: new URLSearchParams({
+      sourceFile: url,
+      key: "3417d8350b29140fddcdc7ab4889e07d",
+      Type: "img",
+      Scaling: "True",
+      Width: "102",
+      trueColor: "True",
+      Height: "152",
+      leftMargin: "102",
+      topMargin: "2",
+    }),
+  });
+};

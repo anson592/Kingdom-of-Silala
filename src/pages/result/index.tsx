@@ -4,8 +4,9 @@ import styles from "./index.module.scss";
 import { Process } from "../../components/process";
 import { QRCode, message } from "antd";
 import Print from "../print";
-import { Typed, Button } from "@/components";
+import { Typed } from "@/components";
 import click from "@/assets/click.wav";
+import { print as printFn } from "@/api/socket";
 
 import { img2img } from "../../api/socket";
 
@@ -222,7 +223,7 @@ const Result = () => {
   }, [state, img]);
 
   const handlePrint = () => {
-    navigate("/");
+    printFn(code!);
     // setPrint(true);
   };
 
