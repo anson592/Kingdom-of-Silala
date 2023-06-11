@@ -99,6 +99,19 @@ const Home = () => {
           src={pbSrc}
           className={`fixed top-0 left-0 w-[100vw] h-[100vh] object-cover z-50 cursor-pointer`}
         />
+        <button
+          className={`fixed z-[51] transform top-[75%] left-[42.5%] fuck-button `}
+          style={{
+            color: "#471d2a",
+            background: "#ca8a5f",
+            fontWeight: 900,
+            border: "8px solid currentColor",
+            textShadow: "1px 1px #471d2a",
+            fontSize: 28,
+          }}
+        >
+          开始游戏
+        </button>
       </>
     );
   }

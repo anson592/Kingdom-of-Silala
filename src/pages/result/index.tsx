@@ -176,6 +176,8 @@ const valueStore = {
   },
 };
 
+let idList: any[] = [];
+
 const Result = () => {
   const location = useLocation();
   const navigate = useNavigate();
@@ -223,6 +225,9 @@ const Result = () => {
   }, [state, img]);
 
   const handlePrint = () => {
+    idList.forEach((id) => {
+      clearTimeout(id);
+    });
     printFn(code!);
     // setPrint(true);
   };
@@ -291,6 +296,11 @@ const Result = () => {
   }
 
   if (img && code) {
+    idList.push(
+      setTimeout(() => {
+        navigate("/");
+      }, 20000)
+    );
     return (
       <div className="flex flex-row w-[100vw] h-[100vh] items-center justify-center fade-in">
         <div className="flex flex-col h-full pt-16">
