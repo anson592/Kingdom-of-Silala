@@ -65,7 +65,7 @@ function blobToBase64(blob: Blob) {
     reader.readAsDataURL(blob);
   });
 }
-const CONTROL_NET_MODEL = "control_canny-fp16 [e3fe7712]";
+const CONTROL_NET_MODEL = "control_v11p_sd15_canny [d14c016b]";
 const CONTROL_NET_MODULE = "canny";
 
 export const img2img = async (
