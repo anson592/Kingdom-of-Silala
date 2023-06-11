@@ -159,7 +159,7 @@ export const print = async (url: string) => {
     },
     body: new URLSearchParams({
       sourceFile: url,
-      key: "3417d8350b29140fddcdc7ab4889e07d",
+      key: "8735edf9a8ddfc879c9b25354072579a",
       Type: "img",
       Scaling: "True",
       Width: "102",
