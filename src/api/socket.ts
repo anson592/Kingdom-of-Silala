@@ -1,7 +1,6 @@
 import axiosClient from "./axiosClient";
 import * as qiniu from "qiniu-js";
-import { base64Src as baseImgSrc } from "./baseImg";
-export const UPLOAD_DOMAIN = "http://rttrj3bao.hn-bkt.clouddn.com/";
+export const UPLOAD_DOMAIN = "http://rw2u1m3vx.hn-bkt.clouddn.com/";
 
 export const dataURLtoFile = (dataurl: string, filename: string) => {
   const arr = dataurl.split(",");
