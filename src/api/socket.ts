@@ -1,4 +1,5 @@
 import axiosClient from "./axiosClient";
+import axios from "axios";
 import * as qiniu from "qiniu-js";
 export const UPLOAD_DOMAIN = "http://rw2u1m3vx.hn-bkt.clouddn.com/";
 
@@ -152,21 +153,15 @@ export const getModels = async (): Promise<string[]> => {
 };
 
 export const print = async (url: string) => {
-  return await fetch("https://www.eyprint.com/public/", {
-    method: "POST",
-    headers: {
-      "Content-Type": "x-www-form-urlencoded",
+  return await axios.post(
+    "https://service-hob3ojuy-1307401873.gz.apigw.tencentcs.com/release/print",
+    {
+      url: url,
     },
-    body: new URLSearchParams({
-      sourceFile: url,
-      key: "8735edf9a8ddfc879c9b25354072579a",
-      Type: "img",
-      Scaling: "True",
-      Width: "102",
-      trueColor: "True",
-      Height: "152",
-      leftMargin: "102",
-      topMargin: "2",
-    }),
-  });
+    {
+      headers: {
+        "Content-Type": "application/json",
+      },
+    }
+  );
 };
