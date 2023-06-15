@@ -63,17 +63,17 @@ const CameraPage = () => {
         <div>
           {!photo ? (
             <div
-              className={`w-[200px] h-[320px] ${styles.preview}`}
+              className={`w-[224px] h-[320px] ${styles.preview}`}
               ref={cameraRef}
             />
           ) : (
-            <div className={`w-[200px] h-[320px] ${styles.preview}`}>
+            <div className={`w-[224px] h-[320px] ${styles.preview}`}>
               <img src={photo} />
             </div>
           )}
         </div>
         <div className="py-[2rem]">
-          <Button className="text-2xl w-[200px]" onClick={handleTakePhoto}>
+          <Button className="text-2xl w-[224px]" onClick={handleTakePhoto}>
             拍 照
           </Button>
         </div>

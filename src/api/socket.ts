@@ -123,7 +123,7 @@ export const img2img = async (
       cfg_scale: 8,
       denoising_strength: 0.75,
       image_cfg_scale: 8,
-      width: 500,
+      width: 532,
       height: 760,
       mask: null,
       override_settings: {

@@ -228,7 +228,15 @@ const Result = () => {
     idList.forEach((id) => {
       clearTimeout(id);
     });
-    printFn(code!);
+    printFn(code!)
+      .then(() => {
+        message.success("打印成功");
+        navigate("/");
+      })
+      .catch(() => {
+        message.error("打印失败");
+        navigate("/");
+      });
     // setPrint(true);
   };
 
