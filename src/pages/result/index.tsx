@@ -339,7 +339,11 @@ const Result = () => {
             className={`mt-16 text-3xl py-[0.4em] px-[1.2em] border-[0.08em] border-transparent cursor-pointer ${
               selectedOptionIndex === 1 ? "border-white" : ""
             }`}
-            onClick={() => navigate("/")}
+            onClick={() =>
+              setTimeout(() => {
+                navigate("/");
+              }, 100)
+            }
           >
             拜 拜
           </span>
