@@ -303,6 +303,14 @@ const Result = () => {
     return <Print src={img ?? ""} onDone={() => setPrint(false)} />;
   }
 
+  if (state.value === "驱逐") {
+    idList.push(
+      setTimeout(() => {
+        navigate("/");
+      }, 8000)
+    );
+  }
+
   if (img && code) {
     idList.push(
       setTimeout(() => {
